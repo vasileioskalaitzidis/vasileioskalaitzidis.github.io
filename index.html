@@ -183,6 +183,24 @@
     background: var(--card);
   }
 
+  .pub-item{
+  scroll-margin-top: 90px; /* prevents the sticky nav from covering it */
+  }
+  
+  .pub-item.is-highlighted{
+    background: #fff3c4;
+    border: 1px solid #f2c94c;
+    border-left-width: 6px;
+    border-radius: 12px;
+    padding: 10px 12px;
+  }
+  
+  .pub-jump{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+    
   /* Mobile */
   @media (max-width: 760px){
     .split{ grid-template-columns: 1fr; }
@@ -463,6 +481,42 @@
   </div>
 
   <script>
+      function highlightPublicationFromHash() {
+      // clear old highlights
+      document.querySelectorAll(".pub-item.is-highlighted")
+        .forEach(el => el.classList.remove("is-highlighted"));
+  
+      const id = window.location.hash?.slice(1);
+      if (!id) return;
+  
+      const target = document.getElementById(id);
+      if (!target) return;
+  
+      target.classList.add("is-highlighted");
+      // if the browser already scrolled, this is fine; if not, ensure visibility
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+  
+      // remove highlight after a bit (optional, comment out if you want it to stay)
+      window.clearTimeout(window.__pubHighlightTimer);
+      window.__pubHighlightTimer = window.setTimeout(() => {
+        target.classList.remove("is-highlighted");
+      }, 3500);
+    }
+  
+    // highlight when clicking links and when opening a URL with a hash
+    window.addEventListener("hashchange", highlightPublicationFromHash);
+    window.addEventListener("DOMContentLoaded", highlightPublicationFromHash);
+  
+    // handle clicking the same hash twice
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const href = a.getAttribute("href");
+      if (href === window.location.hash) {
+        e.preventDefault();
+        highlightPublicationFromHash();
+      }
+    });
     // Mobile menu toggle
     const btn = document.getElementById("menuBtn");
     const links = document.getElementById("navLinks");
