@@ -68,37 +68,53 @@
     .links a{ text-decoration: none; padding: 8px 10px; border-radius: 10px; }
     .links a:hover{ background: var(--card); }
 
-    /* Hero */
+    /* Hero (background image, centered white text) */
     .hero{
-      padding: 34px 0 18px 0;
-    }
-    .hero-grid{
-      display: grid;
-      grid-template-columns: 1.35fr .9fr;
-      gap: 22px;
+      position: relative;
+      padding: 64px 0;
+      min-height: 62vh;
+      display: flex;
       align-items: center;
+      justify-content: center;
+
+      background-image:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("/assets/img/website.top.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
-    h1{ margin: 0 0 6px 0; font-size: clamp(30px, 4vw, 44px); line-height: 1.15; }
-    .subtitle{ margin: 0 0 14px 0; color: var(--muted); font-size: 18px; }
+    .hero-inner{
+      text-align: center;
+      color: #fff;
+      padding: 10px 0;
+    }
+    .hero-inner h1{
+      margin: 0 0 10px 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
+      color: #fff;
+    }
+    .hero-inner .subtitle{
+      margin: 0 0 18px 0;
+      color: rgba(255,255,255,.92);
+      font-size: 18px;
+    }
     .cta{
       display: inline-block;
       padding: 10px 14px;
       border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--card);
+      border: 1px solid rgba(255,255,255,.45);
+      background: rgba(0,0,0,.18);
+      color: #fff;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
     }
-    .cta:hover{ filter: brightness(.98); }
-
-    .hero-img{
-      width: 100%;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--card);
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
+    .cta:hover{ filter: brightness(1.05); }
+    .hero-inner .muted{
+      color: rgba(255,255,255,.85);
     }
+    .hero-inner a{ color: #fff; }
 
     /* Sections */
     section{ padding: 22px 0; }
@@ -152,7 +168,7 @@
 
     /* Mobile */
     @media (max-width: 760px){
-      .hero-grid, .split{ grid-template-columns: 1fr; }
+      .split{ grid-template-columns: 1fr; }
       .menu-btn{ display: inline-block; }
       .links{
         display: none;
@@ -164,6 +180,7 @@
       .links.show{ display: flex; }
       .links a{ padding: 10px 10px; }
       .info{ grid-template-columns: 1fr; }
+      .hero{ min-height: 56vh; padding: 54px 0; }
     }
   </style>
 </head>
@@ -189,27 +206,23 @@
   </div>
 
   <!-- Hero -->
-  <div class="wrap hero" id="top">
-    <div class="hero-grid">
-      <div>
-        <h1>Vasileios Kalaitzidis</h1>
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <h1>Vasileios Kalaitzidis</h1>
 
-        <p class="subtitle">
-          Visiting Research Student at the Tsung-Dao Lee Institute (Shanghai Jiao Tong University).
-        </p>
+      <p class="subtitle">
+        Visiting Research Student at the Tsung-Dao Lee Institute (Shanghai Jiao Tong University).
+      </p>
 
-        <a class="cta" href="#about">More</a>
+      <a class="cta" href="#about">More</a>
 
-        <p class="muted" style="margin-top:14px;">
-          <a href="https://www.linkedin.com/in/vasileios-kalaitzidis">LinkedIn</a> ·
-          <a href="mailto:vasileioskalaitzidis02@gmail.com">Email</a> ·
-          <a href="assets/cv.pdf">CV</a>
-        </p>
-      </div>
-
-      <img class="hero-img" src="/assets/img/website.top.png" alt="Hero image" />
+      <p class="muted" style="margin-top:14px;">
+        <a href="https://www.linkedin.com/in/vasileios-kalaitzidis">LinkedIn</a> ·
+        <a href="mailto:vasileioskalaitzidis02@gmail.com">Email</a> ·
+        <a href="assets/cv.pdf">CV</a>
+      </p>
     </div>
-  </div>
+  </section>
 
   <div class="wrap">
     <!-- About -->
@@ -251,7 +264,7 @@
     <section id="research">
       <h2>Research</h2>
 
-      <h3><strong>Interests<strong></h3>
+      <h3>Interests</h3>
       <p>
         My research interests span a wide array of subdisciplines in astronomy. First, I am currently studying protostellar systems, and how structure and evolution can bias chemical abundance measurments.
         In addition, I am interested in the Hubble Tension and the viability of various proposed solutions to alleviate it. Furthermore, I am actively working on explaining the observed ultra-high diffuse γ-ray excess
@@ -358,7 +371,7 @@
       <div class="split">
         <div>
           <p>
-            You can find my work here:
+            Link to ADS / Google Scholar and optionally list 3–5 selected papers.
           </p>
           <ul>
             <li>
@@ -375,7 +388,7 @@
         </div>
 
         <div>
-          <h3 style="margin-top:0;">Selected Papers</h3>
+          <h3 style="margin-top:0;">Selected</h3>
           <ul>
             <li><strong>Paper Title</strong> (Year) · Journal · <a href="#">link</a></li>
             <li><strong>Paper Title</strong> (Year) · Journal · <a href="#">link</a></li>
@@ -424,4 +437,3 @@
   </script>
 </body>
 </html>
-
