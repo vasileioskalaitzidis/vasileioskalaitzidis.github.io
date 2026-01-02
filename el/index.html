@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vasilis Kalaitzidis</title>
+  <meta name="description" content="Προσωπική ιστοσελίδα του Vasileios Kalaitzidis: έρευνα, δημοσιεύσεις, επικοινωνία." />
+
+  <link rel="canonical" href="https://vasileioskalaitzidis.github.io/el/" />
+  <link rel="alternate" hreflang="en" href="https://vasileioskalaitzidis.github.io/" />
+  <link rel="alternate" hreflang="el" href="https://vasileioskalaitzidis.github.io/el/" />
+  <link rel="alternate" hreflang="zh" href="https://vasileioskalaitzidis.github.io/zh/" />
+  <link rel="alternate" hreflang="x-default" href="https://vasileioskalaitzidis.github.io/" />
+
+  <style>
+    :root{
+      --max: 1120px;
+      --pad: 22px;
+
+      --border: #e8e8e8;
+      --text: #111;
+      --muted: #555;
+      --bg: #fff;
+      --card: #fafafa;
+      --radius: 14px;
+    }
+
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    a{ color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+    /* Top nav */
+    .topbar{
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+    .nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      flex-wrap: wrap; /* Fix 2: allow wrapping so nothing overflows */
+    }
+    .brand{
+      font-weight: 650;
+      letter-spacing: .2px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .menu-btn{
+      display: none;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .links{
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .links a{ text-decoration: none; padding: 8px 10px; border-radius: 10px; }
+    .links a:hover{ background: var(--card); }
+
+    /* Language dropdown */
+    .lang{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .lang-label{
+      font-size: 14px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .lang-select{
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 8px 36px 8px 10px;
+      border-radius: 10px;
+      font-weight: 650;
+      font-size: 14px;
+      cursor: pointer;
+      line-height: 1.2;
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+        linear-gradient(135deg, var(--muted) 50%, transparent 50%),
+        linear-gradient(to right, transparent, transparent);
+      background-position:
+        calc(100% - 18px) 52%,
+        calc(100% - 12px) 52%,
+        0 0;
+      background-size:
+        6px 6px,
+        6px 6px,
+        100% 100%;
+      background-repeat: no-repeat;
+    }
+    .lang-select:hover{ background-color: var(--card); }
+
+    /* Hero (background image, centered white text) */
+    .hero{
+      position: relative;
+      padding: 64px 0;
+      min-height: 62vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background-image:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("/assets/img/website.top.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .hero-inner{
+      text-align: center;
+      color: #fff;
+      padding: 10px 0;
+    }
+    .hero-inner h1{
+      margin: 0 0 10px 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
+      color: #fff;
+    }
+    .hero-inner .subtitle{
+      margin: 0 0 18px 0;
+      color: rgba(255,255,255,.92);
+      font-size: 18px;
+    }
+    .cta{
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.45);
+      background: rgba(0,0,0,.18);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .cta:hover{ filter: brightness(1.05); }
+    .hero-inner .muted{
+      color: rgba(255,255,255,.85);
+    }
+    .hero-inner a{ color: #fff; }
+
+    /* Sections */
+    section{ padding: 22px 0; }
+
+    /* Center H2 headers */
+    h2{
+      margin: 0 0 10px 0;
+      font-size: 26px;
+      text-align: center;
+    }
+
+    h3{ margin: 18px 0 8px 0; font-size: 16px; text-transform: none; }
+    .muted{ color: var(--muted); }
+
+    /* Justified body text (flush left/right) */
+    section p,
+    section li{
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    .split{
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .images{
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .images img{
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .img{
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    hr{
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 18px 0;
+    }
+
+    /* Footer blocks */
+    .info{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .box{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: var(--card);
+    }
+
+    /* Publication highlight */
+    .pub-item{ scroll-margin-top: 90px; }
+    .pub-item.is-highlighted{
+      background: #fff3c4;
+      border: 1px solid #f2c94c;
+      border-left-width: 6px;
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+    .pub-jump{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Mobile */
+    @media (max-width: 760px){
+      .split{ grid-template-columns: 1fr; }
+      .menu-btn{ display: inline-block; }
+      .links{
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        padding: 10px 0 6px 0;
+        width: 100%;
+      }
+      .links.show{ display: flex; }
+      .links a{ padding: 10px 10px; }
+      .info{ grid-template-columns: 1fr; }
+      .hero{ min-height: 56vh; padding: 54px 0; }
+
+      /* keep language selector usable on small screens */
+      .lang{
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top navigation -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top">Tsung-Dao Lee Institute / 李政道研究所</a>
+
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">
+          Μενού
+        </button>
+
+        <div class="links" id="navLinks">
+          <a href="#about">Σχετικά</a>
+          <a href="#research">Έρευνα</a>
+          <a href="#publications">Δημοσιεύσεις</a>
+        </div>
+
+        <div class="lang">
+          <span class="lang-label">Γλώσσα</span>
+          <select class="lang-select" id="langSelect" aria-label="Select language">
+            <option value="/">English</option>
+            <option value="/el/">Ελληνικά</option>
+            <option value="/zh/">中文</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <h1>Vasileios Kalaitzidis</h1>
+
+      <p class="subtitle">
+        Visiting Research Student at the Tsung-Dao Lee Institute (Shanghai Jiao Tong University).
+      </p>
+
+      <a class="cta" href="#about">Περισσότερα</a>
+
+      <p class="muted" style="margin-top:14px;">
+        <a href="https://www.linkedin.com/in/vasileios-kalaitzidis">LinkedIn</a> ·
+        <a href="mailto:vasileioskalaitzidis02@gmail.com">Email</a> ·
+        <a href="assets/US_cv.pdf">CV</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <!-- About -->
+    <section id="about">
+      <h2>Σχετικά</h2>
+
+      <div class="split">
+        <div>
+          <p>
+            Ονομάζομαι Vasileios Kalaitzidis και είμαι από την Αθήνα, Ελλάδα. Αυτή τη στιγμή είμαι Visiting Research Student στο Tsung-Dao Lee Institute, Shanghai Jiao Tong University (TDLI, SJTU),
+            όπου εργάζομαι στην αστροφυσική υπερυψηλής ενέργειας ακτίνων γ, χρησιμοποιώντας το Large High Altitude Air Shower Observatory (LHAASO), υπό την καθοδήγηση του Dr. Gwenael Giacinti
+            και του Dr. Hao Zhou.
+          </p>
+
+          <p>
+            Αποφοίτησα από το University of St Andrews το 2025 με Master’s στην Theoretical Physics (MPhys, First-Class Honours). Η διπλωματική μου εργασία ολοκληρώθηκε
+            υπό την επίβλεψη του Dr. Martin Dominik, ενώ πέρασα επίσης ένα εξάμηνο στο Purdue University το 2024 ως exchange student. Υπήρξα επίσης Gruber-funded Research Student στο European Southern
+            Observatory, δουλεύοντας με την Dr. Pooneh Nazari, και έχω πραγματοποιήσει έρευνα χρηματοδοτούμενη από το Royal Astronomical Society (RAS) υπό την επίβλεψη του Dr. Indranil Banik.
+          </p>
+
+          <p>
+            Τα ευρύτερα ενδιαφέροντά μου περιλαμβάνουν την αστρονομία ακτίνων γ, τα πρωτοαστρικά συστήματα και την κοσμολογία.
+          </p>
+        </div>
+
+        <img
+          class="img"
+          src="/assets/img/IMG_4670.JPG"
+          alt="About image"
+          style="aspect-ratio:auto; object-fit:contain; height:auto;"
+        />
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Research -->
+    <section id="research">
+      <h2>Έρευνα</h2>
+
+      <h3>Ενδιαφέροντα και Προηγούμενες Μελέτες</h3>
+      <p>
+        Η έρευνά μου καλύπτει ένα ευρύ φάσμα θεμάτων στην αστρονομία. Μελετώ πρωτοαστρικά συστήματα και το πώς η δομή και η εξέλιξή τους μπορούν να μεροληπτούν τις μετρήσεις χημικών αφθονιών.
+        Με ενδιαφέρει επίσης η Hubble tension και η βιωσιμότητα προτεινόμενων λύσεων για την άμβλυνσή της. Επιπλέον, εργάζομαι ενεργά στην εξήγηση της πρόσφατα παρατηρηθείσας υπερυψηλής ενέργειας διάχυτης περίσσειας ακτίνων γ.
+        Τέλος, επεκτείνω τη διπλωματική μου εργασία, αξιοποιώντας δεδομένα gravitational microlensing, μαζί με αριθμητικές και machine learning τεχνικές, για τη διερεύνηση αστρικών ατμοσφαιρών.
+      </p>
+
+      <h3>Chemistry of Protostellar Systems</h3>
+      <div class="split">
+        <div>
+          <p>
+            Στην έρευνά μου για τη χημεία πρωτοαστρικών συστημάτων στο European Southern Observatory (Summer 2025) με την Dr. Pooneh Nazari, εστιάζουμε στην κατανόηση πρόσφατων αποκλίσεων μεταξύ λόγων αφθονίας αερίου
+            και πάγου που αναφέρθηκαν από το JOYS survey. Χρησιμοποιούμε radiative-transfer modelling για να ελέγξουμε αν η μεταβολή μόνο της φυσικής δομής μπορεί να αναπαράγει αυτές τις παρατηρησιακές διαφορές ή αν
+            απαιτείται πιο σύνθετη χημεία. Διαπιστώνουμε ότι τα δομικά φαινόμενα μπορούν να οδηγήσουν σε μετατοπίσεις τάξης μεγέθους στους εκτιμώμενους λόγους πυκνοτήτων στη στήλη (column-density ratios), πράγμα που σημαίνει ότι η γεωμετρία και οι συνθήκες του δίσκου ή
+            του περιβλήματος (envelope) μπορούν να μεροληπτούν έντονα αυτό που ερμηνεύουμε ως χημικές διαφορές.
+          </p>
+        </div>
+
+        <img
+          class="img"
+          src="/assets/img/CD_fin_page-0001.jpg"
+          alt="Column densities"
+          style="aspect-ratio:auto; object-fit:contain; height:auto;"
+        />
+      </div>
+
+      <hr />
+
+      <h3>The Local Void and Late-Time Modification Solutions to the Hubble Tension in Cosmology</h3>
+      <div class="split">
+        <div>
+          <p>
+            Σε μια <a class="pub-jump" href="#pub-void">study</a> με τον Indranil Banik, χρηματοδοτούμενη από RAS summer student grant (awarded 2024), ελέγξαμε αν μια μεγάλη τοπική υποπυκνότητα (ένα “local void”) μπορεί να εξηγήσει τα
+            δεδομένα baryon acoustic oscillation (BAO), και βρήκαμε ότι τα void models ταιριάζουν σε μια 20-ετή συλλογή μετρήσεων BAO αισθητά καλύτερα από ένα ομογενές Planck-based model, μειώνοντας τη συνολική ένταση
+            περίπου στο επίπεδο 1σ.
+
+            Σε ένα <a class="pub-jump" href="#pub-fq">separate project</a>, συνυπέγραψα μια ανάλυση modified gravity
+            models στη symmetric teleparallel f(Q) gravity, δείχνοντας ότι ορισμένες θεωρητικά παρακινούμενες μορφές δυσκολεύονται, ενώ ένα exponential-type model μπορεί να αμβλύνει τη Hubble tension αλλά εξακολουθεί να εμφανίζει ήπια ζητήματα συνέπειας με BAO,
+            αναδεικνύοντας πόσο δύσκολο είναι να ικανοποιηθούν όλα τα datasets ταυτόχρονα.
+
+            Τέλος, έχω επίσης συνεισφέρει ως συν-συγγραφέας στο
+            <a class="pub-jump" href="#pub-cosmoverse">CosmoVerse White Paper</a>, το οποίο συνθέτει τις κύριες παρατηρησιακές εντάσεις στην κοσμολογία,
+            χαρτογραφεί πιθανά systematics και περιγράφει υποσχόμενες κατευθύνσεις νέας φυσικής και ανάλυσης για την επόμενη δεκαετία.
+          </p>
+        </div>
+
+        <div class="images">
+          <img
+            class="img"
+            src="/assets/img/m_staf781fig4.jpeg"
+            alt="Column densities figure 4"
+            style="aspect-ratio:auto; object-fit:contain; height:auto;"
+          />
+          <img
+            class="img"
+            src="/assets/img/m_staf781fig1.jpeg"
+            alt="Column densities figure 1"
+            style="aspect-ratio:auto; object-fit:contain; height:auto;"
+          />
+        </div>
+      </div>
+
+      <hr />
+
+      <h3>Explaining the Ultra-High-Energy Diffuse γ-ray Excess</h3>
+      <div class="split">
+        <div>
+          <p>
+            Αυτή τη στιγμή (2026) ασχολούμαι με έρευνα για τη διάχυτη περίσσεια ακτίνων γ υπερυψηλής ενέργειας που παρατηρήθηκε στο Γαλαξιακό επίπεδο από το LHAASO. Η εργασία αυτή εκτελείται στο TDLI (SJTU) στη Σαγκάη, Κίνα.
+            Υπό την καθοδήγηση του Dr. Gwenael Giacinti και του Dr. Hao Zhou, στόχος μου είναι να διερευνήσω τι κλάσμα της παρατηρούμενης περίσσειας μπορεί να αποδοθεί σε μη επιλυμένες πηγές (unresolved sources), όπως pulsars, supernova remnants και γ-ray binaries.
+            Μοντελοποιώ τον πληθυσμό τους και τη Γαλαξιακή κατανομή τους, καθώς και φαινόμενα διάδοσης (propagation effects) που είναι σχετικά για σύγκριση με τις παρατηρήσεις. Τέλος, προσαρμόζω (tune) τα αποτελέσματα στην απόκριση του οργάνου (instrument response) και στο masking που χρησιμοποιεί το LHAASO,
+            παράγοντας HEALPix sky maps ώστε να συγκρίνω τις προσομοιώσεις απευθείας με τα δεδομένα.
+          </p>
+        </div>
+
+        <img
+          class="img"
+          src="/assets/img/10052_2021_9414_Fig1_HTML.jpg"
+          alt="Diffuse gamma-ray figure"
+          style="aspect-ratio:auto; object-fit:contain; height:auto;"
+        />
+      </div>
+
+      <h3>Probing Stellar Atmospheres Using Microlensing Caustic Crossings</h3>
+      <div class="split">
+        <div>
+          <p>
+            Η διπλωματική μου εργασία (submitted to the University of St Andrews in 2025), υπό την επίβλεψη του Dr. Martin Dominik, επικεντρώθηκε στην ανάκτηση μη-παραμετρικών προφίλ limb-darkening χρησιμοποιώντας caustic crossings, κάτι που δεν έχει γίνει ποτέ για fold caustics.
+            Αυτό επιτεύχθηκε με αριθμητικές τεχνικές, συμπεριλαμβανομένων της finite element method και product-integration methods, για την αντιστροφή του Fredholm integral που συνδέει το υποκείμενο προφίλ αστρικής λαμπρότητας
+            με τη ροή (flux) που παρατηρείται κατά τη διάρκεια ενός microlensing event. Αυτή τη στιγμή (2026) εργάζομαι στη δημοσίευση των αποτελεσμάτων και έχω επεκτείνει την εργασία ώστε να περιλαμβάνει machine learning inversion techniques που υπερέχουν σημαντικά των προαναφερθέντων
+            μεθόδων.
+          </p>
+          <a href="assets/mastersposter1.pdf">Poster showcasing some of the early stages of this work</a>
+        </div>
+
+        <img
+          class="img"
+          src="/assets/img/0_003recovery.jpg"
+          alt="Limb darkening recovery"
+          style="aspect-ratio:auto; object-fit:contain; height:auto;"
+        />
+      </div>
+
+      <h3>Using Machine Learning to Distinguish Signal from Spurious Background Noise in the XENONnT Detector</h3>
+      <div class="split">
+        <div>
+          <p>
+            Κατά τη διάρκεια της παραμονής μου στο Purdue University (Spring 2024), συνεργάστηκα με τον συμφοιτητή μου Divij Agarwal και το Purdue XENONnT group
+            για την ανάπτυξη ενός machine learning classifier που διαχωρίζει signal από noise. Με καθοδήγηση από τον Dr. Husheng Guan, ανέπτυξα, ρύθμισα (tuned) και αξιολόγησα αρκετούς αλγορίθμους, συγκρίνοντας την απόδοσή τους στην ταξινόμηση γεγονότων (event classification).
+            Τα δεδομένα που χρησιμοποιήθηκαν για την εκπαίδευση των αλγορίθμων προήλθαν από μια yttrium-beryllium neutron source που εκπέμπει νετρόνια στα 152 keV.
+            Αυτό κατέστη δυνατό επειδή οι nuclear recoils από neutron scattering μιμούνται στενά εκείνες που αναμένονται από weakly interacting massive particle interactions (dark matter candidates targeted by XENONnT),
+            επιτρέποντας στα νετρόνια να λειτουργήσουν ως calibration proxy.
+          </p>
+          <a href="assets/PurduePoster (1).pdf">Poster I presented at the 2024 Spring Undergraduate Research Conference</a>
+        </div>
+
+        <img
+          class="img"
+          src="/assets/img/purduexenon.JPG"
+          alt="Purdue XENONnT project"
+          style="aspect-ratio:auto; object-fit:contain; height:auto;"
+        />
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2>Δημοσιεύσεις</h2>
+
+      <div class="split">
+        <div>
+          <p>
+            Σύνδεσμοι για ADS και Google Scholar. Βρείτε τη δουλειά μου εδώ!
+          </p>
+          <ul>
+            <li>
+              <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Kalaitzidis%2C%20Vasileios%22&sort=date%20desc%2C%20bibcode%20desc&p_=0">
+                ADS publications page
+              </a>
+            </li>
+            <li>
+              <a href="https://scholar.google.com/citations?user=RSSPS70AAAAJ&hl=en">
+                Google Scholar
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 style="margin-top:0;">Επιλεγμένες Δημοσιεύσεις</h3>
+          <ul class="pub-list">
+            <li id="pub-void" class="pub-item">
+              <a href="https://academic.oup.com/mnras/article/540/1/545/8129689">
+                <strong>Testing the local void hypothesis using baryon acoustic oscillation measurements over the last 20 yr</strong>
+              </a>
+              (2025) · Monthly Notices of the Royal Astronomical Society
+            </li>
+
+            <li id="pub-fq" class="pub-item">
+              <a href="https://arxiv.org/abs/2510.20964">
+                <strong>Background solutions to the Hubble tension in f(Q) gravity and consistency with BAO measurements</strong>
+              </a>
+              (2025) · arXiv (submitted)
+            </li>
+
+            <li id="pub-cosmoverse" class="pub-item">
+              <a href="https://www.sciencedirect.com/science/article/pii/S221268642500158X?via%3Dihub">
+                <strong>The CosmoVerse White Paper: Addressing observational tensions in cosmology with systematics and fundamental physics</strong>
+              </a>
+              (2025) · Physics of the Dark Universe
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Contact blocks -->
+    <section>
+      <div class="info">
+        <div class="box">
+          <h3 style="margin-top:0;">Διεύθυνση</h3>
+          <p class="muted" style="margin:0;">
+            No. 1 Lisuo Road, Pudong New Area, Shanghai, 201210, China.
+          </p>
+        </div>
+        <div class="box">
+          <h3 style="margin-top:0;">Email</h3>
+          <p class="muted" style="margin:0;">
+            <a href="mailto:vasileioskalaitzidis02@gmail.com">vasileioskalaitzidis02@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <p class="muted" style="padding: 10px 0 30px 0; font-size: 14px;">
+      © <span id="year"></span> Vasileios Kalaitzidis
+    </p>
+  </div>
+
+  <script>
+    // Publication highlight on hash
+    function highlightPublicationFromHash() {
+      document.querySelectorAll(".pub-item.is-highlighted")
+        .forEach(el => el.classList.remove("is-highlighted"));
+
+      const id = window.location.hash?.slice(1);
+      if (!id) return;
+
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      target.classList.add("is-highlighted");
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      window.clearTimeout(window.__pubHighlightTimer);
+      window.__pubHighlightTimer = window.setTimeout(() => {
+        target.classList.remove("is-highlighted");
+      }, 3500);
+    }
+
+    window.addEventListener("hashchange", highlightPublicationFromHash);
+    window.addEventListener("DOMContentLoaded", highlightPublicationFromHash);
+
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const href = a.getAttribute("href");
+      if (href === window.location.hash) {
+        e.preventDefault();
+        highlightPublicationFromHash();
+      }
+    });
+
+    // Mobile menu toggle
+    const btn = document.getElementById("menuBtn");
+    const links = document.getElementById("navLinks");
+    btn?.addEventListener("click", () => {
+      const isOpen = links.classList.toggle("show");
+      btn.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    // Language dropdown navigation
+    const langSelect = document.getElementById("langSelect");
+    function setLangDefault() {
+      const path = window.location.pathname || "/";
+      if (path.startsWith("/el/")) langSelect.value = "/el/";
+      else if (path.startsWith("/zh/")) langSelect.value = "/zh/";
+      else langSelect.value = "/";
+    }
+    setLangDefault();
+
+    langSelect.addEventListener("change", () => {
+      window.location.href = langSelect.value;
+    });
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
