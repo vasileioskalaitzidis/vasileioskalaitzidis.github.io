@@ -53,7 +53,7 @@
       justify-content: space-between;
       gap: 12px;
       padding: 10px 0;
-      flex-wrap: wrap; /* Fix 2: allow wrapping so nothing overflows */
+      flex-wrap: wrap;
     }
     .brand{
       font-weight: 650;
@@ -121,7 +121,7 @@
     }
     .lang-select:hover{ background-color: var(--card); }
 
-    /* Hero (background image, centered white text) */
+    /* Hero */
     .hero{
       position: relative;
       padding: 64px 0;
@@ -172,7 +172,6 @@
     /* Sections */
     section{ padding: 22px 0; }
 
-    /* Center H2 headers */
     h2{
       margin: 0 0 10px 0;
       font-size: 26px;
@@ -182,7 +181,6 @@
     h3{ margin: 18px 0 8px 0; font-size: 16px; text-transform: none; }
     .muted{ color: var(--muted); }
 
-    /* Justified body text (flush left/right) */
     section p,
     section li{
       text-align: justify;
@@ -221,7 +219,6 @@
       margin: 18px 0;
     }
 
-    /* Footer blocks */
     .info{
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -234,7 +231,6 @@
       background: var(--card);
     }
 
-    /* Publication highlight */
     .pub-item{ scroll-margin-top: 90px; }
     .pub-item.is-highlighted{
       background: #fff3c4;
@@ -248,7 +244,6 @@
       text-underline-offset: 3px;
     }
 
-    /* Mobile */
     @media (max-width: 760px){
       .split{ grid-template-columns: 1fr; }
       .menu-btn{ display: inline-block; }
@@ -265,7 +260,6 @@
       .info{ grid-template-columns: 1fr; }
       .hero{ min-height: 56vh; padding: 54px 0; }
 
-      /* keep language selector usable on small screens */
       .lang{
         width: 100%;
         justify-content: flex-end;
@@ -331,14 +325,14 @@
         <div>
           <p>
             Ονομάζομαι Vasileios Kalaitzidis και είμαι από την Αθήνα, Ελλάδα. Αυτή τη στιγμή είμαι Visiting Research Student στο Tsung-Dao Lee Institute, Shanghai Jiao Tong University (TDLI, SJTU),
-            όπου εργάζομαι στην αστροφυσική υπερυψηλής ενέργειας ακτίνων γ, χρησιμοποιώντας το Large High Altitude Air Shower Observatory (LHAASO), υπό την καθοδήγηση του Dr. Gwenael Giacinti
+            όπου εργάζομαι στην αστροφυσική υπερυψηλής ενέργειας ακτίνων γ (γ-ray), χρησιμοποιώντας το Large High Altitude Air Shower Observatory (LHAASO) υπό την καθοδήγηση του Dr. Gwenael Giacinti
             και του Dr. Hao Zhou.
           </p>
 
           <p>
-            Αποφοίτησα από το University of St Andrews το 2025 με Master’s στην Theoretical Physics (MPhys, First-Class Honours). Η διπλωματική μου εργασία ολοκληρώθηκε
+            Αποφοίτησα από το University of St Andrews το 2025 με Master’s στην Theoretical Physics (MPhys, First-Class Honours). Η Master’s thesis μου ολοκληρώθηκε
             υπό την επίβλεψη του Dr. Martin Dominik, ενώ πέρασα επίσης ένα εξάμηνο στο Purdue University το 2024 ως exchange student. Υπήρξα επίσης Gruber-funded Research Student στο European Southern
-            Observatory, δουλεύοντας με την Dr. Pooneh Nazari, και έχω πραγματοποιήσει έρευνα χρηματοδοτούμενη από το Royal Astronomical Society (RAS) υπό την επίβλεψη του Dr. Indranil Banik.
+            Observatory δουλεύοντας με την Dr. Pooneh Nazari, και έχω πραγματοποιήσει έρευνα χρηματοδοτούμενη από το Royal Astronomical Society (RAS) υπό την επίβλεψη του Dr. Indranil Banik.
           </p>
 
           <p>
@@ -364,8 +358,8 @@
       <h3>Ενδιαφέροντα και Προηγούμενες Μελέτες</h3>
       <p>
         Η έρευνά μου καλύπτει ένα ευρύ φάσμα θεμάτων στην αστρονομία. Μελετώ πρωτοαστρικά συστήματα και το πώς η δομή και η εξέλιξή τους μπορούν να μεροληπτούν τις μετρήσεις χημικών αφθονιών.
-        Με ενδιαφέρει επίσης η Hubble tension και η βιωσιμότητα προτεινόμενων λύσεων για την άμβλυνσή της. Επιπλέον, εργάζομαι ενεργά στην εξήγηση της πρόσφατα παρατηρηθείσας υπερυψηλής ενέργειας διάχυτης περίσσειας ακτίνων γ.
-        Τέλος, επεκτείνω τη διπλωματική μου εργασία, αξιοποιώντας δεδομένα gravitational microlensing, μαζί με αριθμητικές και machine learning τεχνικές, για τη διερεύνηση αστρικών ατμοσφαιρών.
+        Με ενδιαφέρει επίσης η Hubble tension και η βιωσιμότητα προτεινόμενων λύσεων για την άμβλυνσή της. Επιπλέον, εργάζομαι ενεργά στην εξήγηση της πρόσφατα παρατηρηθείσας υπερυψηλής ενέργειας διάχυτης περίσσειας ακτίνων γ (ultra-high-energy diffuse γ-ray excess).
+        Τέλος, επεκτείνω τη Master’s thesis μου, αξιοποιώντας δεδομένα gravitational microlensing, μαζί με αριθμητικές και machine learning τεχνικές, για τη διερεύνηση αστρικών ατμοσφαιρών.
       </p>
 
       <h3>Chemistry of Protostellar Systems</h3>
@@ -374,8 +368,8 @@
           <p>
             Στην έρευνά μου για τη χημεία πρωτοαστρικών συστημάτων στο European Southern Observatory (Summer 2025) με την Dr. Pooneh Nazari, εστιάζουμε στην κατανόηση πρόσφατων αποκλίσεων μεταξύ λόγων αφθονίας αερίου
             και πάγου που αναφέρθηκαν από το JOYS survey. Χρησιμοποιούμε radiative-transfer modelling για να ελέγξουμε αν η μεταβολή μόνο της φυσικής δομής μπορεί να αναπαράγει αυτές τις παρατηρησιακές διαφορές ή αν
-            απαιτείται πιο σύνθετη χημεία. Διαπιστώνουμε ότι τα δομικά φαινόμενα μπορούν να οδηγήσουν σε μετατοπίσεις τάξης μεγέθους στους εκτιμώμενους λόγους πυκνοτήτων στη στήλη (column-density ratios), πράγμα που σημαίνει ότι η γεωμετρία και οι συνθήκες του δίσκου ή
-            του περιβλήματος (envelope) μπορούν να μεροληπτούν έντονα αυτό που ερμηνεύουμε ως χημικές διαφορές.
+            απαιτείται πιο σύνθετη χημεία. Διαπιστώνουμε ότι τα δομικά φαινόμενα μπορούν να οδηγήσουν σε μετατοπίσεις τάξης μεγέθους στους εκτιμώμενους λόγους πυκνοτήτων στη στήλη (inferred column-density ratios), πράγμα που σημαίνει ότι η γεωμετρία και οι συνθήκες του δίσκου ή
+            του περιβλήματος (disk or envelope) μπορούν να μεροληπτούν έντονα αυτό που ερμηνεύουμε ως χημικές διαφορές.
           </p>
         </div>
 
@@ -393,13 +387,13 @@
       <div class="split">
         <div>
           <p>
-            Σε μια <a class="pub-jump" href="#pub-void">study</a> με τον Indranil Banik, χρηματοδοτούμενη από RAS summer student grant (awarded 2024), ελέγξαμε αν μια μεγάλη τοπική υποπυκνότητα (ένα “local void”) μπορεί να εξηγήσει τα
+            Σε μια <a class="pub-jump" href="#pub-void">μελέτη</a> με τον Indranil Banik, χρηματοδοτούμενη από RAS summer student grant (awarded 2024), ελέγξαμε αν μια μεγάλη τοπική υποπυκνότητα (ένα “local void”) μπορεί να εξηγήσει τα
             δεδομένα baryon acoustic oscillation (BAO), και βρήκαμε ότι τα void models ταιριάζουν σε μια 20-ετή συλλογή μετρήσεων BAO αισθητά καλύτερα από ένα ομογενές Planck-based model, μειώνοντας τη συνολική ένταση
             περίπου στο επίπεδο 1σ.
 
-            Σε ένα <a class="pub-jump" href="#pub-fq">separate project</a>, συνυπέγραψα μια ανάλυση modified gravity
-            models στη symmetric teleparallel f(Q) gravity, δείχνοντας ότι ορισμένες θεωρητικά παρακινούμενες μορφές δυσκολεύονται, ενώ ένα exponential-type model μπορεί να αμβλύνει τη Hubble tension αλλά εξακολουθεί να εμφανίζει ήπια ζητήματα συνέπειας με BAO,
-            αναδεικνύοντας πόσο δύσκολο είναι να ικανοποιηθούν όλα τα datasets ταυτόχρονα.
+            Σε ένα <a class="pub-jump" href="#pub-fq">ξεχωριστό έργο</a>, συνυπέγραψα μια ανάλυση μοντέλων τροποποιημένης βαρύτητας (modified gravity models)
+            στη symmetric teleparallel f(Q) gravity, δείχνοντας ότι ορισμένες θεωρητικά παρακινούμενες μορφές δυσκολεύονται, ενώ ένα μοντέλο εκθετικού τύπου (exponential-type model) μπορεί να αμβλύνει τη Hubble tension αλλά εξακολουθεί να εμφανίζει ήπια ζητήματα συνέπειας με BAO,
+            αναδεικνύοντας πόσο δύσκολο είναι να ικανοποιηθούν όλα τα σύνολα δεδομένων (datasets) ταυτόχρονα.
 
             Τέλος, έχω επίσης συνεισφέρει ως συν-συγγραφέας στο
             <a class="pub-jump" href="#pub-cosmoverse">CosmoVerse White Paper</a>, το οποίο συνθέτει τις κύριες παρατηρησιακές εντάσεις στην κοσμολογία,
@@ -429,7 +423,7 @@
       <div class="split">
         <div>
           <p>
-            Αυτή τη στιγμή (2026) ασχολούμαι με έρευνα για τη διάχυτη περίσσεια ακτίνων γ υπερυψηλής ενέργειας που παρατηρήθηκε στο Γαλαξιακό επίπεδο από το LHAASO. Η εργασία αυτή εκτελείται στο TDLI (SJTU) στη Σαγκάη, Κίνα.
+            Αυτή τη στιγμή (2026) ασχολούμαι με έρευνα για τη διάχυτη περίσσεια ακτίνων γ υπερυψηλής ενέργειας (ultra-high-energy diffuse γ-ray excess) που παρατηρήθηκε στο Γαλαξιακό επίπεδο από το LHAASO. Η εργασία αυτή εκτελείται στο TDLI (SJTU) στη Σαγκάη, Κίνα.
             Υπό την καθοδήγηση του Dr. Gwenael Giacinti και του Dr. Hao Zhou, στόχος μου είναι να διερευνήσω τι κλάσμα της παρατηρούμενης περίσσειας μπορεί να αποδοθεί σε μη επιλυμένες πηγές (unresolved sources), όπως pulsars, supernova remnants και γ-ray binaries.
             Μοντελοποιώ τον πληθυσμό τους και τη Γαλαξιακή κατανομή τους, καθώς και φαινόμενα διάδοσης (propagation effects) που είναι σχετικά για σύγκριση με τις παρατηρήσεις. Τέλος, προσαρμόζω (tune) τα αποτελέσματα στην απόκριση του οργάνου (instrument response) και στο masking που χρησιμοποιεί το LHAASO,
             παράγοντας HEALPix sky maps ώστε να συγκρίνω τις προσομοιώσεις απευθείας με τα δεδομένα.
@@ -448,12 +442,12 @@
       <div class="split">
         <div>
           <p>
-            Η διπλωματική μου εργασία (submitted to the University of St Andrews in 2025), υπό την επίβλεψη του Dr. Martin Dominik, επικεντρώθηκε στην ανάκτηση μη-παραμετρικών προφίλ limb-darkening χρησιμοποιώντας caustic crossings, κάτι που δεν έχει γίνει ποτέ για fold caustics.
+            Η Master’s thesis μου (submitted to the University of St Andrews in 2025), υπό την επίβλεψη του Dr. Martin Dominik, επικεντρώθηκε στην ανάκτηση μη-παραμετρικών προφίλ limb-darkening χρησιμοποιώντας caustic crossings, κάτι που δεν έχει γίνει ποτέ για fold caustics.
             Αυτό επιτεύχθηκε με αριθμητικές τεχνικές, συμπεριλαμβανομένων της finite element method και product-integration methods, για την αντιστροφή του Fredholm integral που συνδέει το υποκείμενο προφίλ αστρικής λαμπρότητας
             με τη ροή (flux) που παρατηρείται κατά τη διάρκεια ενός microlensing event. Αυτή τη στιγμή (2026) εργάζομαι στη δημοσίευση των αποτελεσμάτων και έχω επεκτείνει την εργασία ώστε να περιλαμβάνει machine learning inversion techniques που υπερέχουν σημαντικά των προαναφερθέντων
             μεθόδων.
           </p>
-          <a href="assets/mastersposter1.pdf">Poster showcasing some of the early stages of this work</a>
+          <a href="assets/mastersposter1.pdf">Αφίσα που παρουσιάζει ορισμένα από τα αρχικά στάδια αυτής της δουλειάς</a>
         </div>
 
         <img
@@ -469,12 +463,12 @@
         <div>
           <p>
             Κατά τη διάρκεια της παραμονής μου στο Purdue University (Spring 2024), συνεργάστηκα με τον συμφοιτητή μου Divij Agarwal και το Purdue XENONnT group
-            για την ανάπτυξη ενός machine learning classifier που διαχωρίζει signal από noise. Με καθοδήγηση από τον Dr. Husheng Guan, ανέπτυξα, ρύθμισα (tuned) και αξιολόγησα αρκετούς αλγορίθμους, συγκρίνοντας την απόδοσή τους στην ταξινόμηση γεγονότων (event classification).
-            Τα δεδομένα που χρησιμοποιήθηκαν για την εκπαίδευση των αλγορίθμων προήλθαν από μια yttrium-beryllium neutron source που εκπέμπει νετρόνια στα 152 keV.
-            Αυτό κατέστη δυνατό επειδή οι nuclear recoils από neutron scattering μιμούνται στενά εκείνες που αναμένονται από weakly interacting massive particle interactions (dark matter candidates targeted by XENONnT),
+            για την ανάπτυξη ενός machine learning classifier που διαχωρίζει signal από noise. Με καθοδήγηση από τον Dr. Husheng Guan, ανέπτυξα, έκανα ρύθμιση παραμέτρων (tuned) και αξιολόγησα αρκετούς αλγορίθμους, συγκρίνοντας την απόδοσή τους στην ταξινόμηση γεγονότων (event classification).
+            Τα δεδομένα που χρησιμοποιήθηκαν για την εκπαίδευση των αλγορίθμων προήλθαν από μια πηγή νετρονίων υττρίου-βηρυλλίου (yttrium-beryllium neutron source) που εκπέμπει νετρόνια στα 152 keV.
+            Αυτό κατέστη δυνατό επειδή οι πυρηνικές ανακρούσεις (nuclear recoils) από neutron scattering μιμούνται στενά εκείνες που αναμένονται από αλληλεπιδράσεις weakly interacting massive particles (dark matter candidates targeted by XENONnT),
             επιτρέποντας στα νετρόνια να λειτουργήσουν ως calibration proxy.
           </p>
-          <a href="assets/PurduePoster (1).pdf">Poster I presented at the 2024 Spring Undergraduate Research Conference</a>
+          <a href="assets/PurduePoster (1).pdf">Η αφίσα που παρουσίασα στο 2024 Spring Undergraduate Research Conference</a>
         </div>
 
         <img
