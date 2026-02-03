@@ -270,6 +270,29 @@
       border-radius: 2px; /* optional */
       flex: 0 0 auto;
     }
+    /* Brand layout */
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:.5rem;
+      min-width:0;          /* required for clamping in flex */
+      max-width:100%;
+      text-decoration:none;
+    }
+    
+    .brand-icon{
+      flex:0 0 auto;
+      width:32px;           /* adjust if you want */
+      height:32px;
+    }
+    
+    /* Wrap + clamp text */
+    .brand-text{
+      min-width:0;          /* required for clamping */
+      overflow:hidden;
+      line-height:1.2;
+      display:block;
+    }
     /* Mobile */
     @media (max-width: 760px){
       .split{ grid-template-columns: 1fr; }
@@ -292,6 +315,13 @@
         width: 100%;
         justify-content: flex-end;
       }
+      /* --- Brand: 2-line clamp on mobile --- */
+      .brand-text{
+        display:-webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2;
+        white-space:normal;
+      }
     }
   </style>
 </head>
@@ -302,9 +332,10 @@
     <div class="wrap">
       <div class="nav">
         <a class="brand" href="#top">
-        <img class="brand-icon" src="/assets/img/VKicon.png" alt="VK" />
-            AstroParticle and Cosmology Laboratory & Tsung-Dao Lee Institute
+          <img class="brand-icon" src="/assets/img/VKicon.png" alt="VK" />
+          <span class="brand-text">AstroParticle and Cosmology Laboratory &amp; Tsung-Dao Lee Institute</span>
         </a>
+
         <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">
           Menu
         </button>
@@ -326,6 +357,7 @@
       </div>
     </div>
   </div>
+
 
   <!-- Hero -->
   <section class="hero" id="top">
