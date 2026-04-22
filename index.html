@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vasilis Kalaitzidis</title>
-  <meta name="description" content="Personal website of Vasileios Kalaitzidis: research, publications, contact." />
+  <meta name="color-scheme" content="dark" />
+  <title>Vasileios Kalaitzidis — Astrophysics &amp; Cosmology</title>
+  <meta name="description" content="Vasileios Kalaitzidis — Visiting Research Student at APC Paris and TDLI Shanghai. γ-ray astronomy, cosmology, protostellar systems." />
 
   <link rel="canonical" href="https://vasileioskalaitzidis.github.io/" />
   <link rel="alternate" hreflang="en" href="https://vasileioskalaitzidis.github.io/" />
@@ -17,669 +18,995 @@
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
   <style>
     :root{
-      --max: 1120px;
-      --pad: 22px;
+      --f-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+      --f-body:    "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --f-mono:    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-      --border: #e8e8e8;
-      --text: #111;
-      --muted: #555;
-      --bg: #fff;
-      --card: #fafafa;
-      --radius: 14px;
+      --bg:        #0a0a0d;
+      --bg-2:      #101015;
+      --surface:   #15161c;
+      --line:      rgba(236, 231, 217, .08);
+      --line-2:    rgba(236, 231, 217, .18);
+      --text:      #ece7d9;
+      --text-2:    #a39f94;
+      --muted:     #6b6860;
+      --accent:    #d9b269;
+      --accent-br: #f0c57b;
+
+      --max: 1180px;
+      --pad: 32px;
+      --ease:     cubic-bezier(.2, .7, .2, 1);
+      --ease-out: cubic-bezier(.16, 1, .3, 1);
     }
 
     *{ box-sizing: border-box; }
     html{ scroll-behavior: smooth; }
     body{
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: var(--f-body);
+      font-size: 16.5px;
+      line-height: 1.65;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    a{ color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    ::selection{ background: var(--accent); color: #0a0a0d; }
+    a{ color: inherit; text-decoration: none; }
 
     .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 
-    /* Top nav */
-    .topbar{
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      z-index: 10;
+    /* ---------- Scroll progress ---------- */
+    .progress{
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .1s linear;
+      box-shadow: 0 0 10px rgba(217, 178, 105, .5);
     }
+
+    /* ---------- Navigation ---------- */
     .nav{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 0;
-      flex-wrap: wrap; /* Fix 2: allow wrapping so nothing overflows */
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 50;
+      padding: 22px 0;
+      background: rgba(10, 10, 13, .55);
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      border-bottom: 1px solid transparent;
+      transition: padding .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease);
+    }
+    .nav.scrolled{
+      padding: 14px 0;
+      background: rgba(10, 10, 13, .82);
+      border-bottom-color: var(--line);
+    }
+    .nav-inner{
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
     }
     .brand{
-      font-weight: 650;
-      letter-spacing: .2px;
-      text-decoration: none;
-      white-space: nowrap;
+      font-family: var(--f-display);
+      font-weight: 500;
+      font-size: 19px;
+      letter-spacing: .01em;
+      display: inline-flex; align-items: center; gap: .65em;
     }
+    .brand-icon{
+      width: 30px; height: 30px;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block;
+      flex: 0 0 auto;
+    }
+    .brand .mono{
+      font-family: var(--f-mono);
+      font-weight: 400;
+      font-size: 10.5px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+    .links{ display: flex; align-items: center; gap: 28px; }
+    .links a{
+      font-family: var(--f-mono);
+      font-size: 11.5px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      padding: 6px 0;
+      position: relative;
+      transition: color .3s var(--ease);
+    }
+    .links a .n{ color: var(--accent); margin-right: .6em; opacity: .9; }
+    .links a::after{
+      content: "";
+      position: absolute; left: 0; right: 0; bottom: 0;
+      height: 1px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .5s var(--ease-out);
+    }
+    .links a:hover{ color: var(--text); }
+    .links a:hover::after{ transform: scaleX(1); }
 
     .menu-btn{
       display: none;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      padding: 8px 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      white-space: nowrap;
+      background: transparent;
+      border: 1px solid var(--line-2);
+      color: var(--text);
+      font-family: var(--f-mono);
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      padding: 8px 12px; border-radius: 2px; cursor: pointer;
     }
 
-    .links{
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .links a{ text-decoration: none; padding: 8px 10px; border-radius: 10px; }
-    .links a:hover{ background: var(--card); }
-
-    /* Language dropdown */
-    .lang{
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-    .lang-label{
-      font-size: 14px;
-      color: var(--muted);
-      white-space: nowrap;
-    }
     .lang-select{
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      padding: 8px 36px 8px 10px;
-      border-radius: 10px;
-      font-weight: 650;
-      font-size: 14px;
-      cursor: pointer;
-      line-height: 1.2;
+      appearance: none; -webkit-appearance: none;
+      background: transparent;
+      border: 1px solid var(--line-2);
+      color: var(--text-2);
+      font-family: var(--f-mono);
+      font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+      padding: 8px 28px 8px 10px;
+      border-radius: 2px; cursor: pointer;
       background-image:
-        linear-gradient(45deg, transparent 50%, var(--muted) 50%),
-        linear-gradient(135deg, var(--muted) 50%, transparent 50%),
-        linear-gradient(to right, transparent, transparent);
-      background-position:
-        calc(100% - 18px) 52%,
-        calc(100% - 12px) 52%,
-        0 0;
-      background-size:
-        6px 6px,
-        6px 6px,
-        100% 100%;
+        linear-gradient(45deg, transparent 50%, var(--text-2) 50%),
+        linear-gradient(135deg, var(--text-2) 50%, transparent 50%);
+      background-position: calc(100% - 14px) 52%, calc(100% - 9px) 52%;
+      background-size: 5px 5px;
       background-repeat: no-repeat;
+      transition: border-color .25s var(--ease), color .25s var(--ease);
     }
-    .lang-select:hover{ background-color: var(--card); }
+    .lang-select:hover{ color: var(--text); border-color: var(--text-2); }
+    .lang-select option{ background: var(--bg-2); color: var(--text); }
 
-    /* Hero (background image, centered white text) */
+    /* ---------- Hero ---------- */
     .hero{
       position: relative;
-      padding: 64px 0;
-      min-height: 62vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background-image:
-        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-        url("/assets/img/website.top.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    .hero-inner{
-      text-align: center;
-      color: #fff;
-      padding: 10px 0;
-    }
-    .hero-inner h1{
-      margin: 0 0 10px 0;
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.15;
-      color: #fff;
-    }
-    .hero-inner .subtitle{
-      margin: 0 0 18px 0;
-      color: rgba(255,255,255,.92);
-      font-size: 18px;
-    }
-    .cta{
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.45);
-      background: rgba(0,0,0,.18);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-    }
-    .cta:hover{ filter: brightness(1.05); }
-    .hero-inner .muted{
-      color: rgba(255,255,255,.85);
-    }
-    .hero-inner a{ color: #fff; }
-
-    /* Sections */
-    section{ padding: 22px 0; }
-
-    /* Center H2 headers */
-    h2{
-      margin: 0 0 10px 0;
-      font-size: 26px;
-      text-align: center;
-    }
-
-    h3{ margin: 18px 0 8px 0; font-size: 16px; text-transform: none; }
-    .muted{ color: var(--muted); }
-
-    /* Justified body text (flush left/right) */
-    section p,
-    section li{
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-    }
-
-    .split{
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      align-items: start;
-    }
-    .images{
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      padding: 120px 0 40px;
+      overflow: hidden;
     }
-    .images img{
-      width: 100%;
-      height: auto;
-      object-fit: contain;
+    .hero-bg{
+      position: absolute; inset: -4%;
+      background-image: url("/assets/img/website.top.png");
+      background-size: cover;
+      background-position: center;
+      will-change: transform;
+      transform: translate3d(0, 0, 0) scale(1.04);
     }
-    .img{
-      width: 100%;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--card);
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
+    .hero-veil{
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(10,10,13,.55) 0%, rgba(10,10,13,.88) 70%, rgba(10,10,13,.96) 100%),
+        linear-gradient(180deg, rgba(10,10,13,.35) 0%, transparent 20%, transparent 80%, var(--bg) 100%);
     }
-
-    hr{
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 18px 0;
-    }
-
-    /* Footer blocks */
-    .info{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .box{
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px;
-      background: var(--card);
+    .hero-grain{
+      position: absolute; inset: 0;
+      opacity: .35; mix-blend-mode: overlay; pointer-events: none;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='.55'/></svg>");
     }
 
-    /* Publication highlight */
-    .pub-item{ scroll-margin-top: 90px; }
-    .pub-item.is-highlighted{
-      background: #fff3c4;
-      border: 1px solid #f2c94c;
-      border-left-width: 6px;
-      border-radius: 12px;
-      padding: 10px 12px;
-    }
-    .pub-jump{
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .brand{
-      display: inline-flex;
+    .hero-inner{
+      position: relative; text-align: center;
+      max-width: 1000px; padding: 0 20px;
+      margin: 0 auto;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
-      font-weight: 650;
-      letter-spacing: .2px;
-      text-decoration: none;
-      white-space: nowrap;
+      width: 100%;
     }
-    
-    .brand-icon{
-      width: 42px;
-      height: 42px;
-      object-fit: contain;
-      border-radius: 2px; /* optional */
+    .eyebrow{
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--f-mono);
+      font-size: 11px;
+      letter-spacing: .38em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 44px;
+    }
+    .eyebrow .dot{
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+    .hero-name{
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-size: clamp(58px, 11vw, 148px);
+      line-height: .92;
+      letter-spacing: -.03em;
+      margin: 0;
+      color: #f4efe1;
+      font-variation-settings: "opsz" 144, "SOFT" 100;
+    }
+    .hero-name .given{ display: block; }
+    .hero-name .family{
+      display: block;
+      font-style: italic;
+      font-variation-settings: "opsz" 144, "SOFT" 80;
+      color: #fff;
+    }
+    .rule{
+      width: 72px; height: 1px;
+      background: var(--accent);
+      margin: 44px auto;
+      transform-origin: center;
+    }
+    .role{
+      font-family: var(--f-mono);
+      font-size: 12px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      margin: 0;
+    }
+    .role .sep{ color: var(--muted); margin: 0 .6em; }
+
+    .hero-cta{
+      display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+      margin-top: 44px;
+      font-family: var(--f-mono);
+      font-size: 11.5px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .hero-cta a{
+      position: relative;
+      color: var(--text);
+      padding-bottom: 4px;
+    }
+    .hero-cta a::after{
+      content: "";
+      position: absolute; left: 0; right: 0; bottom: 0;
+      height: 1px; background: var(--accent);
+      transform: scaleX(.4); transform-origin: left;
+      transition: transform .5s var(--ease-out);
+    }
+    .hero-cta a:hover::after{ transform: scaleX(1); }
+
+    .hero-scroll{
+      position: relative;
+      margin: 60px auto 0;
+      font-family: var(--f-mono);
+      font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--text-2);
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
       flex: 0 0 auto;
     }
-    /* Brand layout */
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:.5rem;
-      min-width:0;          /* required for clamping in flex */
-      max-width:100%;
-      text-decoration:none;
+    .hero-scroll .tick{
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: tick 2.4s infinite var(--ease-out);
+      transform-origin: top;
     }
-    
-    .brand-icon{
-      flex:0 0 auto;
-      width:32px;           /* adjust if you want */
-      height:32px;
+    @keyframes tick{
+      0%   { transform: scaleY(0); opacity: 0; transform-origin: top; }
+      35%  { transform: scaleY(1); opacity: 1; transform-origin: top; }
+      70%  { transform: scaleY(1); opacity: 1; transform-origin: bottom; }
+      100% { transform: scaleY(0); opacity: 0; transform-origin: bottom; }
     }
-    
-    /* Wrap + clamp text */
-    .brand-text{
-      min-width:0;          /* required for clamping */
-      overflow:hidden;
-      line-height:1.2;
-      display:block;
-    }
-    /* Mobile */
-    @media (max-width: 760px){
-      .split{ grid-template-columns: 1fr; }
-      .menu-btn{ display: inline-block; }
-      .links{
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 6px;
-        padding: 10px 0 6px 0;
-        width: 100%;
-      }
-      .links.show{ display: flex; }
-      .links a{ padding: 10px 10px; }
-      .info{ grid-template-columns: 1fr; }
-      .hero{ min-height: 56vh; padding: 54px 0; }
 
-      /* keep language selector usable on small screens */
-      .lang{
-        width: 100%;
-        justify-content: flex-end;
+    /* ---------- Sections ---------- */
+    main{ position: relative; }
+    section{ padding: 120px 0; position: relative; }
+    section:first-of-type{ padding-top: 100px; }
+
+    .sec-head{ text-align: center; margin-bottom: 80px; }
+    .sec-num{
+      font-family: var(--f-mono);
+      font-size: 11px; letter-spacing: .32em; text-transform: uppercase;
+      color: var(--accent); margin: 0 0 18px;
+    }
+    .sec-title{
+      font-family: var(--f-display);
+      font-weight: 400; font-style: italic;
+      font-size: clamp(42px, 6.5vw, 76px);
+      line-height: 1; letter-spacing: -.025em;
+      margin: 0; color: #f4efe1;
+      font-variation-settings: "opsz" 120, "SOFT" 50;
+    }
+    .sec-sub{
+      font-family: var(--f-mono);
+      font-size: 11.5px; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); margin: 18px 0 0;
+    }
+
+    /* ---------- About ---------- */
+    .about-grid{
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .about-text p{ margin: 0 0 18px; color: var(--text); }
+    .about-text p:first-child::first-letter{
+      font-family: var(--f-display);
+      font-weight: 400; font-style: italic;
+      font-size: 4.6em; line-height: .9;
+      float: left;
+      padding: .05em .12em 0 0;
+      color: var(--accent);
+      font-variation-settings: "opsz" 144, "SOFT" 80;
+    }
+    .about-text a{
+      color: var(--text);
+      border-bottom: 1px solid var(--line-2);
+      transition: color .25s var(--ease), border-color .25s var(--ease);
+    }
+    .about-text a:hover{ color: var(--accent); border-color: var(--accent); }
+
+    .tags{
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 28px;
+    }
+    .tag{
+      font-family: var(--f-mono);
+      font-size: 10.5px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-2);
+      padding: 6px 12px;
+      border: 1px solid var(--line-2);
+      border-radius: 2px;
+    }
+
+    figure{ margin: 0; }
+    figure img{
+      display: block; width: 100%; height: auto;
+      border-radius: 3px;
+      background: var(--surface);
+    }
+    figcaption{
+      font-family: var(--f-mono);
+      font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 14px;
+      padding-left: 14px;
+      border-left: 1px solid var(--accent);
+      line-height: 1.7;
+    }
+
+    /* ---------- Research / projects ---------- */
+    .lead{
+      max-width: 760px;
+      margin: 0 auto 90px;
+      font-family: var(--f-display);
+      font-weight: 300;
+      font-size: 22px; line-height: 1.55; letter-spacing: -.005em;
+      color: var(--text-2);
+      text-align: center;
+      font-variation-settings: "opsz" 36, "SOFT" 50;
+    }
+
+    .project{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      padding: 80px 0;
+      border-top: 1px solid var(--line);
+    }
+    .project:last-of-type{ border-bottom: 1px solid var(--line); }
+    .project.flip .project-body{ order: 2; }
+    .project.flip figure{ order: 1; }
+
+    .project-num{
+      font-family: var(--f-mono);
+      font-size: 11px; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--accent); margin: 0 0 18px;
+    }
+    .project h3{
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-size: clamp(26px, 2.6vw, 34px);
+      line-height: 1.15; letter-spacing: -.015em;
+      margin: 0 0 14px; color: #f4efe1;
+      font-variation-settings: "opsz" 72, "SOFT" 40;
+    }
+    .project-meta{
+      font-family: var(--f-mono);
+      font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--muted); margin: 0 0 22px;
+    }
+    .project p{ margin: 0 0 16px; }
+    .project a{
+      color: var(--accent);
+      border-bottom: 1px solid transparent;
+      transition: border-color .25s var(--ease);
+    }
+    .project a:hover{ border-color: var(--accent); }
+    .project .project-extra{
+      display: inline-block; margin-top: 8px;
+      font-family: var(--f-mono);
+      font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    }
+    .project .project-extra::after{ content: " →"; }
+    .project figure{ transition: transform .6s var(--ease-out); }
+    .project figure:hover{ transform: translateY(-4px); }
+
+    /* ---------- Publications ---------- */
+    .pubs{
+      list-style: none; padding: 0;
+      margin: 0 auto; max-width: 920px;
+    }
+    .pubs li{
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 28px;
+      padding: 36px 4px;
+      border-top: 1px solid var(--line);
+      transition: background .4s var(--ease), padding-left .4s var(--ease), box-shadow .4s var(--ease);
+      align-items: baseline;
+    }
+    .pubs li:last-child{ border-bottom: 1px solid var(--line); }
+    .pubs li:hover{ background: rgba(217, 178, 105, .035); }
+    .pub-num{
+      font-family: var(--f-display);
+      font-style: italic; font-weight: 400;
+      font-size: 28px; line-height: 1;
+      color: var(--accent);
+      font-variation-settings: "opsz" 72, "SOFT" 100;
+    }
+    .pub-body h4{
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-size: 22px; line-height: 1.3; letter-spacing: -.01em;
+      margin: 0 0 10px; color: #f4efe1;
+    }
+    .pub-body h4 a{
+      background-image: linear-gradient(var(--accent), var(--accent));
+      background-repeat: no-repeat;
+      background-size: 0 1px;
+      background-position: 0 100%;
+      transition: background-size .5s var(--ease-out), color .3s var(--ease);
+    }
+    .pub-body h4 a:hover{
+      background-size: 100% 1px;
+      color: var(--accent);
+    }
+    .pub-meta{
+      font-family: var(--f-mono);
+      font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--muted); margin: 0;
+    }
+    .pub-year{
+      font-family: var(--f-display);
+      font-style: italic; font-size: 15px;
+      color: var(--text-2); white-space: nowrap;
+    }
+    .pubs li.is-highlighted{
+      background: rgba(217, 178, 105, .08);
+      box-shadow: inset 3px 0 0 var(--accent);
+      padding-left: 14px;
+    }
+
+    .pub-external{
+      display: flex; justify-content: center; gap: 28px;
+      margin-top: 56px;
+      font-family: var(--f-mono);
+      font-size: 11.5px; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--text-2);
+      flex-wrap: wrap;
+    }
+    .pub-external a{
+      color: var(--text);
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--line-2);
+      transition: color .25s var(--ease), border-color .25s var(--ease);
+    }
+    .pub-external a:hover{ color: var(--accent); border-color: var(--accent); }
+
+    /* ---------- Contact ---------- */
+    .contact-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 880px; margin: 0 auto;
+    }
+    .contact-card{
+      padding: 36px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: linear-gradient(180deg, rgba(236,231,217,.015), transparent);
+      transition: border-color .35s var(--ease), transform .35s var(--ease), background .35s var(--ease);
+    }
+    .contact-card:hover{
+      border-color: var(--line-2);
+      transform: translateY(-3px);
+      background: linear-gradient(180deg, rgba(217,178,105,.04), transparent);
+    }
+    .contact-label{
+      font-family: var(--f-mono);
+      font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--accent); margin: 0 0 16px;
+    }
+    .contact-card p, .contact-card address{
+      font-style: normal;
+      font-family: var(--f-display);
+      font-size: 18px; line-height: 1.5; letter-spacing: -.005em;
+      color: var(--text); margin: 0;
+      font-variation-settings: "opsz" 24, "SOFT" 30;
+    }
+    .contact-card a{
+      color: var(--text);
+      border-bottom: 1px solid var(--line-2);
+      transition: color .25s var(--ease), border-color .25s var(--ease);
+    }
+    .contact-card a:hover{ color: var(--accent); border-color: var(--accent); }
+
+    /* ---------- Footer ---------- */
+    footer{
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--line);
+      margin-top: 80px;
+    }
+    .foot{
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+      font-family: var(--f-mono);
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ---------- Scroll reveal ---------- */
+    .reveal{
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .9s var(--ease-out), transform .9s var(--ease-out);
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible{ opacity: 1; transform: none; }
+
+    /* ---------- Hero entrance stagger ---------- */
+    .hero .eyebrow, .hero-name .given, .hero-name .family,
+    .hero .role, .hero-cta a, .hero-scroll{
+      animation: rise 1.1s var(--ease-out) both;
+    }
+    .hero .eyebrow        { animation-delay: .05s; }
+    .hero-name .given     { animation-delay: .18s; }
+    .hero-name .family    { animation-delay: .32s; }
+    .hero .rule{
+      animation: grow 1s var(--ease-out) .55s both;
+    }
+    .hero .role           { animation-delay: .82s; }
+    .hero-cta a:nth-child(1){ animation-delay: 1.00s; }
+    .hero-cta a:nth-child(2){ animation-delay: 1.08s; }
+    .hero-cta a:nth-child(3){ animation-delay: 1.16s; }
+    .hero-scroll          { animation-delay: 1.35s; }
+
+    @keyframes rise{
+      from{ opacity: 0; transform: translateY(22px); }
+      to  { opacity: 1; transform: none; }
+    }
+    @keyframes grow{
+      from{ opacity: 0; transform: scaleX(0); }
+      to  { opacity: 1; transform: scaleX(1); }
+    }
+
+    /* ---------- Reduced motion ---------- */
+    @media (prefers-reduced-motion: reduce){
+      *, *::before, *::after{
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
       }
-      /* --- Brand: 2-line clamp on mobile --- */
-      .brand-text{
-        display:-webkit-box;
-        -webkit-box-orient:vertical;
-        -webkit-line-clamp:2;
-        white-space:normal;
+      .reveal{ opacity: 1; transform: none; }
+      .hero-scroll .tick{ animation: none; opacity: .4; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px){
+      :root{ --pad: 22px; }
+      .nav{ padding: 14px 0; }
+      .links{ display: none; }
+      .links.open{
+        display: flex; flex-direction: column; align-items: stretch;
+        gap: 0; width: 100%;
+        padding: 14px 0 4px;
       }
+      .links.open a{ padding: 12px 0; border-bottom: 1px solid var(--line); }
+      .menu-btn{ display: inline-block; }
+
+      section{ padding: 80px 0; }
+      .sec-head{ margin-bottom: 56px; }
+      .about-grid{ grid-template-columns: 1fr; gap: 40px; }
+      .about-text p:first-child::first-letter{ font-size: 3.6em; }
+      .project{ grid-template-columns: 1fr; gap: 32px; padding: 56px 0; }
+      .project.flip .project-body{ order: 1; }
+      .project.flip figure{ order: 2; }
+      .lead{ font-size: 18px; margin-bottom: 64px; }
+
+      .pubs li{ grid-template-columns: 40px 1fr; row-gap: 8px; padding: 28px 4px; }
+      .pub-year{ grid-column: 2; margin-top: 6px; }
+
+      .contact-grid{ grid-template-columns: 1fr; gap: 20px; }
+      .contact-card{ padding: 26px; }
+      .hero-cta{ gap: 18px; }
+      .hero{ min-height: 92vh; padding: 100px 20px 30px; }
+      .hero-scroll{ margin-top: 40px; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Top navigation -->
-  <div class="topbar">
-    <div class="wrap">
-      <div class="nav">
-        <a class="brand" href="#top">
-          <img class="brand-icon" src="/assets/img/VKicon.png" alt="VK" />
-          <span class="brand-text">AstroParticle and Cosmology Laboratory &amp; Tsung-Dao Lee Institute</span>
-        </a>
+  <div class="progress" id="progress"></div>
 
-        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">
-          Menu
-        </button>
+  <!-- ============= NAV ============= -->
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <img class="brand-icon" src="/assets/img/VKicon.png" alt="VK" />
+        <span class="mono">Kalaitzidis</span>
+      </a>
 
-        <div class="links" id="navLinks">
-          <a href="#about">About</a>
-          <a href="#research">Research</a>
-          <a href="#publications">Publications</a>
-        </div>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
 
-        <div class="lang">
-          <span class="lang-label">Language</span>
-          <select class="lang-select" id="langSelect" aria-label="Select language">
-            <option value="/">English</option>
-            <option value="/el/">Ελληνικά</option>
-            <option value="/zh/">中文</option>
-          </select>
-        </div>
+      <div class="links" id="navLinks">
+        <a href="#about"><span class="n">01</span>About</a>
+        <a href="#research"><span class="n">02</span>Research</a>
+        <a href="#publications"><span class="n">03</span>Publications</a>
+        <a href="#contact"><span class="n">04</span>Contact</a>
+      </div>
+
+      <select class="lang-select" id="langSelect" aria-label="Select language">
+        <option value="/">EN</option>
+        <option value="/el/">EL</option>
+        <option value="/zh/">ZH</option>
+      </select>
+    </div>
+  </nav>
+
+  <!-- ============= HERO ============= -->
+  <header class="hero" id="top">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-veil"></div>
+    <div class="hero-grain"></div>
+
+    <div class="hero-inner">
+      <p class="eyebrow">
+        <span class="dot"></span>
+        Portfolio · 2026
+      </p>
+
+      <h1 class="hero-name">
+        <span class="given">Vasileios</span>
+        <span class="family">Kalaitzidis</span>
+      </h1>
+
+      <div class="rule"></div>
+
+      <p class="role">
+        Visiting Researcher
+        <span class="sep">·</span>
+        APC Paris
+        <span class="sep">/</span>
+        TDLI Shanghai
+      </p>
+
+      <div class="hero-cta">
+        <a href="https://www.linkedin.com/in/vasileios-kalaitzidis">LinkedIn</a>
+        <a href="mailto:vasileioskalaitzidis02@gmail.com">Email</a>
+        <a href="assets/US_cv.pdf">Curriculum Vitae</a>
       </div>
     </div>
-  </div>
 
-
-  <!-- Hero -->
-  <section class="hero" id="top">
-    <div class="wrap hero-inner">
-      <h1>Vasileios Kalaitzidis</h1>
-
-      <p class="subtitle">
-        Visiting Research Student at the AstroParticle and Cosmology Laboratory (Paris) / Tsung-Dao Lee Institute (Shanghai).
-      </p>
-
-      <a class="cta" href="#about">More</a>
-
-      <p class="muted" style="margin-top:14px;">
-        <a href="https://www.linkedin.com/in/vasileios-kalaitzidis">LinkedIn</a> ·
-        <a href="mailto:vasileioskalaitzidis02@gmail.com">Email</a> ·
-        <a href="assets/US_cv.pdf">CV</a>
-      </p>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <span class="tick"></span>
     </div>
-  </section>
+  </header>
 
-  <div class="wrap">
-    <!-- About -->
+  <main>
+    <!-- ============= ABOUT ============= -->
     <section id="about">
-      <h2>About</h2>
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-num">§ 01</p>
+          <h2 class="sec-title">About</h2>
+          <p class="sec-sub">A short introduction</p>
+        </header>
 
-      <div class="split">
-        <div>
-          <p>
-            My name is Vasileios Kalaitzidis and I am from Athens, Greece. I am currently a Visiting Research Student at the AstroParticle and Cosmology Laboratory (APC, in Paris) and the Tsung-Dao Lee Institute, Shanghai Jiao Tong University (TDLI, SJTU),
-            working on ultra-high-energy γ-ray astrophysics using the Large High Altitude Air Shower Observatory (LHAASO) under the mentorship of Dr. Gwenael Giacinti
-            and Dr. Hao Zhou.
-          </p>
+        <div class="about-grid reveal">
+          <div class="about-text">
+            <p>
+              My name is Vasileios Kalaitzidis and I am from Athens, Greece. I am currently a Visiting Research Student at the AstroParticle and Cosmology Laboratory (APC, Paris) and the Tsung-Dao Lee Institute, Shanghai Jiao Tong University (TDLI, SJTU), working on ultra-high-energy γ-ray astrophysics with the Large High Altitude Air Shower Observatory (LHAASO) under the mentorship of Dr. Gwenael Giacinti and Dr. Hao Zhou.
+            </p>
+            <p>
+              I graduated from the University of St Andrews in 2025 with a Master's in Theoretical Physics (MPhys, First-Class Honours), with a thesis supervised by Dr. Martin Dominik. I spent a semester at Purdue University in 2024 as an exchange student, was a Gruber-funded Research Student at the European Southern Observatory working with Dr. Pooneh Nazari, and have carried out Royal Astronomical Society–funded research supervised by Dr. Indranil Banik.
+            </p>
+            <p>My broader interests span γ-ray astronomy, protostellar systems, and cosmology.</p>
 
-          <p>
-            I graduated from the University of St Andrews in 2025 with a Master’s in Theoretical Physics (MPhys, First-Class Honours). My Master’s thesis was completed
-            under the supervision of Dr. Martin Dominik, and I also spent a semester at Purdue University in 2024 as an exchange student. I was also a Gruber-funded Research Student at the European Southern
-            Observatory working with Dr. Pooneh Nazari, and I have carried out Royal Astronomical Society (RAS)-funded research supervised by Dr. Indranil Banik.
-          </p>
+            <div class="tags">
+              <span class="tag">γ-ray astronomy</span>
+              <span class="tag">Cosmology</span>
+              <span class="tag">Protostellar systems</span>
+              <span class="tag">Microlensing</span>
+              <span class="tag">Machine learning</span>
+            </div>
+          </div>
 
-          <p>
-            My broader interests include γ-ray astronomy, protostellar systems, and cosmology.
-          </p>
+          <figure>
+            <img src="/assets/img/IMG_4670.JPG" alt="Portrait of Vasileios Kalaitzidis" />
+            <figcaption>Portrait — 2025</figcaption>
+          </figure>
         </div>
-
-        <img
-          class="img"
-          src="/assets/img/IMG_4670.JPG"
-          alt="About image"
-          style="aspect-ratio:auto; object-fit:contain; height:auto;"
-        />
       </div>
     </section>
 
-    <hr />
-
-    <!-- Research -->
+    <!-- ============= RESEARCH ============= -->
     <section id="research">
-      <h2>Research</h2>
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-num">§ 02</p>
+          <h2 class="sec-title">Research</h2>
+          <p class="sec-sub">Selected projects &amp; ongoing work</p>
+        </header>
 
-      <h3>Interests and Past Studies</h3>
-      <p>
-        My research spans a wide range of topics in astronomy. I study protostellar systems and how structure and evolution can bias chemical abundance measurements.
-        I am also interested in the Hubble tension and the viability of proposed solutions to alleviate it. Furthermore, I am actively working on explaining the recently observed ultra-high-energy diffuse γ-ray excess.
-        Finally, I am extending my Master’s thesis on using gravitational microlensing data, alongside numerical and machine learning techniques, to probe stellar atmospheres.
-      </p>
+        <p class="lead reveal">
+          My research spans protostellar chemistry, the Hubble tension, the ultra-high-energy diffuse γ-ray excess, and stellar-atmosphere recovery from gravitational microlensing events — bridging numerical modelling, observation, and machine learning.
+        </p>
 
-      <h3>Chemistry of Protostellar Systems</h3>
-      <div class="split">
-        <div>
-          <p>
-            In my research on the chemistry of protostellar systems at the European Southern Observatory (Summer 2025) with Dr. Pooneh Nazari, we focus on understanding recent mismatches between gas
-            and ice abundance ratios reported by the JOYS survey. We employ radiative-transfer modelling to test whether varying physical structure alone can reproduce these observational differences, or if
-            more complex chemistry is required. We find that structural effects can drive order-of-magnitude shifts in the inferred column-density ratios, meaning geometry and disk or
-            envelope conditions can strongly bias what we interpret as chemical differences.
-          </p>
-        </div>
+        <article class="project reveal">
+          <div class="project-body">
+            <p class="project-num">Project 01</p>
+            <h3>Chemistry of Protostellar Systems</h3>
+            <p class="project-meta">ESO · Summer 2025 · w/ Dr. Pooneh Nazari</p>
+            <p>
+              At the European Southern Observatory with Dr. Pooneh Nazari, we investigate recent mismatches between gas- and ice-phase abundance ratios reported by the JOYS survey. Through radiative-transfer modelling we test whether variations in physical structure alone can reproduce the observed differences, or whether richer chemistry is required.
+            </p>
+            <p>
+              We find that structural effects alone can drive order-of-magnitude shifts in the inferred column-density ratios — geometry and disk/envelope conditions strongly bias what is interpreted as chemical difference.
+            </p>
+          </div>
+          <figure>
+            <img src="/assets/img/CD_fin_page-0001.jpg" alt="Column density plots" />
+            <figcaption>Fig. 1 — Column-density ratios under varying envelope geometry</figcaption>
+          </figure>
+        </article>
 
-        <img
-          class="img"
-          src="/assets/img/CD_fin_page-0001.jpg"
-          alt="Column densities"
-          style="aspect-ratio:auto; object-fit:contain; height:auto;"
-        />
-      </div>
+        <article class="project flip reveal">
+          <div class="project-body">
+            <p class="project-num">Project 02</p>
+            <h3>The Local Void &amp; Late-Time Solutions to the Hubble Tension</h3>
+            <p class="project-meta">RAS-funded · 2024–2025 · w/ Dr. Indranil Banik</p>
+            <p>
+              In a <a href="#pub-void">study</a> with Indranil Banik — funded by a 2024 RAS summer student grant — we tested whether a large local underdensity (a "local void") can explain the baryon acoustic oscillation data. Void models fit a 20-year compilation of BAO measurements markedly better than a homogeneous Planck-based model, reducing the overall tension to roughly the 1σ level.
+            </p>
+            <p>
+              The work was featured as a <a href="https://ras.ac.uk/news-and-press/research-highlights/earth-inside-huge-void-sound-big-bang-hints-so">Royal Astronomical Society highlighted research article</a>. I have also co-authored analyses of modified gravity in symmetric teleparallel <em>f(Q)</em> gravity (<a href="#pub-fq">paper</a>) and contributed to the <a href="#pub-cosmoverse">CosmoVerse White Paper</a>.
+            </p>
+          </div>
+          <figure>
+            <img src="/assets/img/m_staf781fig4.jpeg" alt="Void model BAO fit" />
+            <figcaption>Fig. 2 — Void-model residuals against a 20-year BAO compilation</figcaption>
+          </figure>
+        </article>
 
-      <hr />
+        <article class="project reveal">
+          <div class="project-body">
+            <p class="project-num">Project 03</p>
+            <h3>The Ultra-High-Energy Diffuse γ-ray Excess</h3>
+            <p class="project-meta">TDLI · 2026– · w/ Dr. Gwenael Giacinti &amp; Dr. Hao Zhou</p>
+            <p>
+              At TDLI (SJTU) in Shanghai I investigate what fraction of the ultra-high-energy diffuse γ-ray excess observed in the Galactic plane by LHAASO can be attributed to unresolved sources — pulsars, supernova remnants, and γ-ray binaries.
+            </p>
+            <p>
+              I model their populations and Galactic distributions alongside the propagation effects relevant for comparison to observations, then tune the results to the instrument response and masking used by LHAASO, producing HEALPix sky maps for direct simulation-to-data comparison.
+            </p>
+          </div>
+          <figure>
+            <img src="/assets/img/10052_2021_9414_Fig1_HTML.jpg" alt="Diffuse gamma-ray sky map" />
+            <figcaption>Fig. 3 — Diffuse γ-ray sky structure, after LHAASO-equivalent masking</figcaption>
+          </figure>
+        </article>
 
-      <h3>The Local Void and Late-Time Modification Solutions to the Hubble Tension in Cosmology</h3>
-      <div class="split">
-        <div>
-          <p>
-            In a <a class="pub-jump" href="#pub-void">study</a> with Indranil Banik, funded by a RAS summer student grant (awarded 2024), we tested whether a large local underdensity (a “local void”) can explain the
-            baryon acoustic oscillation (BAO) data, and we found that void models fit a 20-year compilation of BAO measurements markedly better than a homogeneous Planck-based model, reducing the overall tension
-            to roughly the 1σ level.
-          </p>
-          <a href="https://ras.ac.uk/news-and-press/research-highlights/earth-inside-huge-void-sound-big-bang-hints-so">The research above was made into a Royal Astronomical Society highlighted research article.</a> 
-          <p>
-            In a <a class="pub-jump" href="#pub-fq">separate project</a>, I co-authored an analysis of modified gravity
-            models in symmetric teleparallel f(Q) gravity, showing that some theoretically motivated forms struggle, while an exponential-type model can ease the Hubble tension but still runs into mild BAO consistency
-            issues, highlighting how hard it is to satisfy all datasets at once.
+        <article class="project flip reveal">
+          <div class="project-body">
+            <p class="project-num">Project 04</p>
+            <h3>Stellar Atmospheres via Microlensing Caustic Crossings</h3>
+            <p class="project-meta">University of St Andrews · 2024–2025 · w/ Dr. Martin Dominik</p>
+            <p>
+              My Master's thesis focused on recovering non-parametric limb-darkening profiles from caustic crossings — never previously achieved for fold caustics. The method uses finite-element and product-integration techniques to invert the Fredholm integral connecting the underlying stellar brightness profile to the flux observed during a microlensing event.
+            </p>
+            <p>
+              I am now extending the work with machine-learning inversion techniques that significantly outperform the numerical baselines, with publication in preparation.
+            </p>
+            <a class="project-extra" href="assets/mastersposter1.pdf">Early-stage poster</a>
+          </div>
+          <figure>
+            <img src="/assets/img/0_003recovery.jpg" alt="Limb darkening recovery" />
+            <figcaption>Fig. 4 — Recovered limb-darkening profile from fold-caustic crossing</figcaption>
+          </figure>
+        </article>
 
-            Finally, I have also contributed as a co-author to the
-            <a class="pub-jump" href="#pub-cosmoverse">CosmoVerse White Paper</a>, which synthesizes the major observational tensions in cosmology,
-            maps likely systematics, and outlines promising new-physics and analysis directions for the coming decade.
-          </p>
-        </div>
-
-        <div class="images">
-          <img
-            class="img"
-            src="/assets/img/m_staf781fig4.jpeg"
-            alt="Column densities figure 4"
-            style="aspect-ratio:auto; object-fit:contain; height:auto;"
-          />
-          <img
-            class="img"
-            src="/assets/img/m_staf781fig1.jpeg"
-            alt="Column densities figure 1"
-            style="aspect-ratio:auto; object-fit:contain; height:auto;"
-          />
-        </div>
-      </div>
-
-      <hr />
-
-      <h3>Explaining the Ultra-High-Energy Diffuse γ-ray Excess</h3>
-      <div class="split">
-        <div>
-          <p>
-            I am currently (2026) engaged in research on the ultra-high-energy diffuse γ-ray excess observed in the Galactic plane by LHAASO. This work is being carried out at TDLI (SJTU) in Shanghai, China.
-            Under the guidance of Dr. Gwenael Giacinti and Dr. Hao Zhou, I aim to investigate what fraction of the observed excess can be attributed to unresolved sources, such as pulsars, supernova remnants, and γ-ray binaries.
-            I model their population and Galactic distribution, as well as propagation effects relevant for comparison to observations. Finally, I tune the results to the instrument response and masking used by LHAASO,
-            producing HEALPix sky maps to compare simulations directly with data.
-          </p>
-        </div>
-
-        <img
-          class="img"
-          src="/assets/img/10052_2021_9414_Fig1_HTML.jpg"
-          alt="Diffuse gamma-ray figure"
-          style="aspect-ratio:auto; object-fit:contain; height:auto;"
-        />
-      </div>
-
-      <h3>Probing Stellar Atmospheres Using Microlensing Caustic Crossings</h3>
-      <div class="split">
-        <div>
-          <p>
-            My Master’s thesis (submitted to the University of St Andrews in 2025), supervised by Dr. Martin Dominik, focused on recovering non-parametric limb-darkening profiles using caustic crossings, which has never been done for fold caustics.
-            This was achieved using numerical techniques including the finite element method and product-integration methods to invert the Fredholm integral that connects the underlying stellar brightness profile
-            to the flux observed during a microlensing event. I am currently (2026) working on publishing the results, and have extended the work to include machine learning inversion techniques that outperform the aforementioned
-            methods significantly.
-          </p>
-          <a href="assets/mastersposter1.pdf">Poster showcasing some of the early stages of this work</a>
-        </div>
-
-        <img
-          class="img"
-          src="/assets/img/0_003recovery.jpg"
-          alt="Limb darkening recovery"
-          style="aspect-ratio:auto; object-fit:contain; height:auto;"
-        />
-      </div>
-
-      <h3>Using Machine Learning to Distinguish Signal from Spurious Background Noise in the XENONnT Detector</h3>
-      <div class="split">
-        <div>
-          <p>
-            During my time at Purdue University (Spring 2024), I collaborated with my classmate Divij Agarwal and the Purdue XENONnT group
-            to build a machine learning classifier to separate signal from noise. With guidance from Dr. Husheng Guan, I developed, tuned, and evaluated several algorithms, comparing their performance on event classification.
-            The data used to train the algorithms came from a yttrium-beryllium neutron source that emits neutrons at 152 keV.
-            This was enabled by the fact that nuclear recoils from neutron scattering closely mimic those expected from weakly interacting massive particle interactions (dark matter candidates targeted by XENONnT),
-            allowing neutrons to serve as a calibration proxy.
-          </p>
-          <a href="assets/PurduePoster (1).pdf">Poster I presented at the 2024 Spring Undergraduate Research Conference</a>
-        </div>
-
-        <img
-          class="img"
-          src="/assets/img/purduexenon.JPG"
-          alt="Purdue XENONnT project"
-          style="aspect-ratio:auto; object-fit:contain; height:auto;"
-        />
+        <article class="project reveal">
+          <div class="project-body">
+            <p class="project-num">Project 05</p>
+            <h3>Signal / Noise Classification for XENONnT</h3>
+            <p class="project-meta">Purdue University · Spring 2024 · w/ Dr. Husheng Guan</p>
+            <p>
+              With my classmate Divij Agarwal and the Purdue XENONnT group, I built a machine-learning classifier to separate signal from background noise, training on data from a yttrium–beryllium neutron source emitting at 152 keV — a calibration proxy for WIMP nuclear recoils.
+            </p>
+            <a class="project-extra" href="assets/PurduePoster (1).pdf">Research conference poster</a>
+          </div>
+          <figure>
+            <img src="/assets/img/purduexenon.JPG" alt="Purdue XENONnT project" />
+            <figcaption>Fig. 5 — Purdue XENONnT calibration campaign</figcaption>
+          </figure>
+        </article>
       </div>
     </section>
 
-    <hr />
-
-    <!-- Publications -->
+    <!-- ============= PUBLICATIONS ============= -->
     <section id="publications">
-      <h2>Publications</h2>
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-num">§ 03</p>
+          <h2 class="sec-title">Publications</h2>
+          <p class="sec-sub">Selected peer-reviewed &amp; preprint work</p>
+        </header>
 
-      <div class="split">
-        <div>
-          <p>
-            Link to ADS and Google Scholar, find my work here!
-          </p>
-          <ul>
-            <li>
-              <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Kalaitzidis%2C%20Vasileios%22&sort=date%20desc%2C%20bibcode%20desc&p_=0">
-                ADS publications page
-              </a>
-            </li>
-            <li>
-              <a href="https://scholar.google.com/citations?user=RSSPS70AAAAJ&hl=en">
-                Google Scholar
-              </a>
-            </li>
-          </ul>
-        </div>
+        <ol class="pubs reveal">
+          <li id="pub-void" class="pub-item">
+            <span class="pub-num">I.</span>
+            <div class="pub-body">
+              <h4><a href="https://academic.oup.com/mnras/article/540/1/545/8129689">Testing the local void hypothesis using baryon acoustic oscillation measurements over the last 20 yr</a></h4>
+              <p class="pub-meta">Monthly Notices of the Royal Astronomical Society · Peer-reviewed</p>
+            </div>
+            <span class="pub-year">2025</span>
+          </li>
 
-        <div>
-          <h3 style="margin-top:0;">Selected Publications</h3>
-          <ul class="pub-list">
-            <li id="pub-void" class="pub-item">
-              <a href="https://academic.oup.com/mnras/article/540/1/545/8129689">
-                <strong>Testing the local void hypothesis using baryon acoustic oscillation measurements over the last 20 yr</strong>
-              </a>
-              (2025) · Monthly Notices of the Royal Astronomical Society
-            </li>
+          <li id="pub-fq" class="pub-item">
+            <span class="pub-num">II.</span>
+            <div class="pub-body">
+              <h4><a href="https://arxiv.org/abs/2510.20964">Background solutions to the Hubble tension in <em>f(Q)</em> gravity and consistency with BAO measurements</a></h4>
+              <p class="pub-meta">arXiv · Submitted</p>
+            </div>
+            <span class="pub-year">2025</span>
+          </li>
 
-            <li id="pub-fq" class="pub-item">
-              <a href="https://arxiv.org/abs/2510.20964">
-                <strong>Background solutions to the Hubble tension in f(Q) gravity and consistency with BAO measurements</strong>
-              </a>
-              (2025) · arXiv (submitted)
-            </li>
+          <li id="pub-cosmoverse" class="pub-item">
+            <span class="pub-num">III.</span>
+            <div class="pub-body">
+              <h4><a href="https://www.sciencedirect.com/science/article/pii/S221268642500158X?via%3Dihub">The CosmoVerse White Paper: Addressing observational tensions in cosmology with systematics and fundamental physics</a></h4>
+              <p class="pub-meta">Physics of the Dark Universe · Peer-reviewed</p>
+            </div>
+            <span class="pub-year">2025</span>
+          </li>
+        </ol>
 
-            <li id="pub-cosmoverse" class="pub-item">
-              <a href="https://www.sciencedirect.com/science/article/pii/S221268642500158X?via%3Dihub">
-                <strong>The CosmoVerse White Paper: Addressing observational tensions in cosmology with systematics and fundamental physics</strong>
-              </a>
-              (2025) · Physics of the Dark Universe
-            </li>
-          </ul>
+        <div class="pub-external reveal">
+          <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Kalaitzidis%2C%20Vasileios%22&sort=date%20desc%2C%20bibcode%20desc&p_=0">ADS →</a>
+          <a href="https://scholar.google.com/citations?user=RSSPS70AAAAJ&hl=en">Google Scholar →</a>
         </div>
       </div>
     </section>
 
-    <hr />
+    <!-- ============= CONTACT ============= -->
+    <section id="contact">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-num">§ 04</p>
+          <h2 class="sec-title">Correspondence</h2>
+          <p class="sec-sub">Direct contact</p>
+        </header>
 
-    <!-- Contact blocks -->
-    <section>
-      <div class="info">
-        <div class="box">
-          <h3 style="margin-top:0;">Address</h3>
-          <p class="muted" style="margin:0;">
-            No. 1 Lisuo Road, Pudong New Area, Shanghai, 201210, China.
-          </p>
-        </div>
-        <div class="box">
-          <h3 style="margin-top:0;">Email</h3>
-          <p class="muted" style="margin:0;">
-            <a href="mailto:vasileioskalaitzidis02@gmail.com">vasileioskalaitzidis02@gmail.com</a>
-            <a href="mailto:vkalaitzidis@sjtu.edu.cn; ">vkalaitzidis@sjtu.edu.cn</a>
-          </p>
+        <div class="contact-grid reveal">
+          <div class="contact-card">
+            <p class="contact-label">Address</p>
+            <address>No. 1 Lisuo Road<br />Pudong New Area<br />Shanghai 201210, China</address>
+          </div>
+          <div class="contact-card">
+            <p class="contact-label">Email</p>
+            <p>
+              <a href="mailto:vasileioskalaitzidis02@gmail.com">vasileioskalaitzidis02@gmail.com</a><br />
+              <a href="mailto:vkalaitzidis@sjtu.edu.cn">vkalaitzidis@sjtu.edu.cn</a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <p class="muted" style="padding: 10px 0 30px 0; font-size: 14px;">
-      © <span id="year"></span> Vasileios Kalaitzidis
-    </p>
-  </div>
+    <footer>
+      <div class="wrap foot">
+        <span>© <span id="year"></span> Vasileios Kalaitzidis</span>
+        <span>Paris · Shanghai</span>
+      </div>
+    </footer>
+  </main>
 
   <script>
-    // Publication highlight on hash
-    function highlightPublicationFromHash() {
-      document.querySelectorAll(".pub-item.is-highlighted")
-        .forEach(el => el.classList.remove("is-highlighted"));
+    /* Scroll progress + nav shade + hero parallax */
+    const progress = document.getElementById("progress");
+    const nav = document.getElementById("nav");
+    const heroBg = document.getElementById("heroBg");
+    let ticking = false;
+    function onScroll(){
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY || 0;
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.width = Math.min(100, (y / Math.max(1, h)) * 100) + "%";
+        nav.classList.toggle("scrolled", y > 20);
+        if (heroBg) heroBg.style.transform = `translate3d(0, ${y * 0.15}px, 0) scale(1.04)`;
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 
-      const id = window.location.hash?.slice(1);
-      if (!id) return;
-
-      const target = document.getElementById(id);
-      if (!target) return;
-
-      target.classList.add("is-highlighted");
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-
-      window.clearTimeout(window.__pubHighlightTimer);
-      window.__pubHighlightTimer = window.setTimeout(() => {
-        target.classList.remove("is-highlighted");
-      }, 3500);
+    /* Reveal on scroll */
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReduced && "IntersectionObserver" in window){
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries){
+          if (e.isIntersecting){
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("is-visible"));
     }
 
+    /* Publication hash highlight */
+    function highlightPublicationFromHash(){
+      document.querySelectorAll(".pub-item.is-highlighted")
+        .forEach(el => el.classList.remove("is-highlighted"));
+      const id = window.location.hash?.slice(1);
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (!target) return;
+      target.classList.add("is-highlighted");
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.clearTimeout(window.__pubT);
+      window.__pubT = window.setTimeout(() => target.classList.remove("is-highlighted"), 3500);
+    }
     window.addEventListener("hashchange", highlightPublicationFromHash);
     window.addEventListener("DOMContentLoaded", highlightPublicationFromHash);
-
     document.addEventListener("click", (e) => {
       const a = e.target.closest('a[href^="#"]');
       if (!a) return;
-      const href = a.getAttribute("href");
-      if (href === window.location.hash) {
+      if (a.getAttribute("href") === window.location.hash){
         e.preventDefault();
         highlightPublicationFromHash();
       }
     });
 
-    // Mobile menu toggle
-    const btn = document.getElementById("menuBtn");
-    const links = document.getElementById("navLinks");
-    btn?.addEventListener("click", () => {
-      const isOpen = links.classList.toggle("show");
-      btn.setAttribute("aria-expanded", String(isOpen));
+    /* Mobile menu */
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn?.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+    });
+    navLinks?.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") navLinks.classList.remove("open");
     });
 
-    // Language dropdown navigation
+    /* Language dropdown */
     const langSelect = document.getElementById("langSelect");
-    function setLangDefault() {
+    (function(){
       const path = window.location.pathname || "/";
-      if (path.startsWith("/el/")) langSelect.value = "/el/";
-      else if (path.startsWith("/zh/")) langSelect.value = "/zh/";
-      else langSelect.value = "/";
-    }
-    setLangDefault();
+      langSelect.value = path.startsWith("/el/") ? "/el/"
+                       : path.startsWith("/zh/") ? "/zh/" : "/";
+    })();
+    langSelect.addEventListener("change", () => { window.location.href = langSelect.value; });
 
-    langSelect.addEventListener("change", () => {
-      window.location.href = langSelect.value;
-    });
-
-    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
