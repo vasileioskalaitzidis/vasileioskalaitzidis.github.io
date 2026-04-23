@@ -1,0 +1,896 @@
+{
+  "photographer": "Vasileios Kalaitzidis",
+  "tagline": "Selected photographs",
+  "baseUrl": "https://pub-a0b1c61230de429ea08e6aeaa1df699d.r2.dev/",
+  "collections": [
+    {
+      "slug": "Athens2026",
+      "title": "Athens2026",
+      "description": "",
+      "photos": [
+        {
+          "file": "Athens2026/000046.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Athens2026/000047.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Athens2026/000053.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Athens2026/000056.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Athens2026/000057.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Athens2026/IMG_5269_edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "slug": "Barcelona2025",
+      "title": "Barcelona2025",
+      "description": "",
+      "photos": [
+        {
+          "file": "Barcelona2025/000030-edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Barcelona2025/IMG_3905.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Barcelona2025/IMG_3908.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Barcelona2025/IMG_3909.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "slug": "Beijing2026",
+      "title": "Beijing2026",
+      "description": "",
+      "photos": [
+        {
+          "file": "Beijing2026/000001_edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Beijing2026/000007_edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Beijing2026/000009.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Beijing2026/000018_edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Beijing2026/000019_crop.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "slug": "California2025",
+      "title": "California2025",
+      "description": "",
+      "photos": [
+        {
+          "file": "California2025/000003.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "California2025/000014.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "California2025/000015.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "California2025/000017.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "California2025/000018.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "California2025/000019.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "California2025/000020.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "California2025/000022.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "California2025/000023.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "California2025/000024.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "California2025/000025.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "California2025/000027.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "slug": "Cyclades2026",
+      "title": "Cyclades2026",
+      "description": "",
+      "photos": [
+        {
+          "file": "Cyclades2026/000022.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Cyclades2026/000036.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Cyclades2026/000044.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "slug": "Germany2025",
+      "title": "Germany2025",
+      "description": "",
+      "photos": [
+        {
+          "file": "Germany2025/84600010.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Germany2025/84610003.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Germany2025/84610007.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Germany2025/84610008.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Germany2025/84610015.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Germany2025/84610017.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "slug": "Hangzhou2026",
+      "title": "Hangzhou2026",
+      "description": "",
+      "photos": [
+        {
+          "file": "Hangzhou2026/000006.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Hangzhou2026/000010.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Hangzhou2026/000012_crop.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "slug": "Parnassos2025",
+      "title": "Parnassos2025",
+      "description": "",
+      "photos": [
+        {
+          "file": "Parnassos2025/000002.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Parnassos2025/000049.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Parnassos2025/000053.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Parnassos2025/000059.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Parnassos2025/000061.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "slug": "Shanghai2026",
+      "title": "Shanghai2026",
+      "description": "",
+      "photos": [
+        {
+          "file": "Shanghai2026/000001.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000001_hotel.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000002_rotated.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000003_rot.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000004.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000004_edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000006.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000009_edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000010_edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000012.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000014.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000014_rot.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000015.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000015_rotated.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000022.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000023.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000023_rotated.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000029.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000029_buvket.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000030.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000031.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000033.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000036.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000038.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000039.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000040_crop.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000040_edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000041.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000042.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000044.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000047.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000048.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000048_crop.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000049.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000049_edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000050.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000051_crop.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000053_crop.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000054_crop.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000055_edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000056_crop.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000061.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000064_crop.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000065_crop.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000066.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Shanghai2026/000067_edit.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "slug": "Syvota2025",
+      "title": "Syvota2025",
+      "description": "",
+      "photos": [
+        {
+          "file": "Syvota2025/84570025.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Syvota2025/84570032.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Syvota2025/84580008.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Syvota2025/84580014.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Syvota2025/84580021.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Syvota2025/84580022.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Syvota2025/84580025.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Syvota2025/84590022.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Syvota2025/84590026.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "slug": "Tianmen 2026",
+      "title": "Tianmen 2026",
+      "description": "",
+      "photos": [
+        {
+          "file": "Tianmen 2026/000020.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Tianmen 2026/000027.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Tianmen 2026/000034_crop.JPG",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Tianmen 2026/000038.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "slug": "Zhangjiajie",
+      "title": "Zhangjiajie",
+      "description": "",
+      "photos": [
+        {
+          "file": "Zhangjiajie/000004.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Zhangjiajie/000006_rot.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Zhangjiajie/000007_zhang.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Zhangjiajie/000008.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Zhangjiajie/000009.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Zhangjiajie/000010_crop.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Zhangjiajie/000011.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Zhangjiajie/000012_rot.jpeg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Zhangjiajie/000024.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Zhangjiajie/000025.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Zhangjiajie/000029.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        },
+        {
+          "file": "Zhangjiajie/000033.jpg",
+          "title": "",
+          "location": "",
+          "year": null,
+          "note": ""
+        }
+      ]
+    }
+  ]
+}
